@@ -250,9 +250,11 @@ extension PlaybackControlNSView {
     }
 }
 
+#if DEBUG
 struct PlaybackControlNSView_Previews: PreviewProvider {
     static var previews: some View {
         AutoNSViewRepresentable(nsView: PlaybackControlNSView())
             .background(Color.red)
     }
 }
+#endif
