@@ -14,11 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var windowController: MainWindowController!
     @IBOutlet weak var openMenuItem: NSMenuItem!
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationWillFinishLaunching(_ notification: Notification) {
         windowController = MainWindowController(menuItem: openMenuItem)
         windowController.showImportView()
     }
-
+    
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
