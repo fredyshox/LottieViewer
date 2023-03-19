@@ -17,7 +17,7 @@ final class PreviewViewModel: ObservableObject {
         static let margin: CGFloat = 100
     }
     
-    let animation: Animation
+    let animation: LottieAnimation
     // progress conducted by user interaction with playback control, this is received
     @Published var interactionProgress: CGFloat = 0.0
     // progress for playback control, this is published
@@ -51,7 +51,7 @@ final class PreviewViewModel: ObservableObject {
     private var wasPlaying: Bool = true
     
     convenience init?(url: URL) {
-        guard let animation = Animation.filepath(url.path) else {
+        guard let animation = LottieAnimation.filepath(url.path) else {
             return nil
         }
         
@@ -59,14 +59,14 @@ final class PreviewViewModel: ObservableObject {
     }
     
     convenience init?(animationName: String) {
-        guard let animation = Animation.named(animationName) else {
+        guard let animation = LottieAnimation.named(animationName) else {
             return nil
         }
         
         self.init(animation: animation)
     }
     
-    init(animation: Animation) {
+    init(animation: LottieAnimation) {
         self.animation = animation
         setup()
     }
