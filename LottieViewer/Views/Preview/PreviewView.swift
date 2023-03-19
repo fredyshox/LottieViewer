@@ -21,7 +21,7 @@ final class PreviewView: NSView {
 
     private let scrollView = NSScrollView()
     private let containerView = NSView()
-    private let animationView = AnimationView()
+    private let animationView = LottieAnimationView()
     private let controlView = PlaybackControlNSView()
     private let buttons = ButtonStack()
     
@@ -211,6 +211,8 @@ final class PreviewView: NSView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.right.equalToSuperview().inset(12.0)
         }
+        animationView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        animationView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
     
     override func mouseEntered(with event: NSEvent) {

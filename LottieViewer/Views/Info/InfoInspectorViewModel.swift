@@ -32,12 +32,12 @@ final class InfoInspectorViewModel: ObservableObject {
         }
     }
     
-    private let animation: Animation
+    private let animation: LottieAnimation
     
     @Published var cells: [(Cells, String)] = []
     
     convenience init?(url: URL) {
-        guard let animation = Animation.filepath(url.path) else {
+        guard let animation = LottieAnimation.filepath(url.path) else {
             return nil
         }
         
@@ -45,14 +45,14 @@ final class InfoInspectorViewModel: ObservableObject {
     }
     
     convenience init?(animationName: String) {
-        guard let animation = Animation.named(animationName) else {
+        guard let animation = LottieAnimation.named(animationName) else {
             return nil
         }
         
         self.init(animation: animation)
     }
     
-    init(animation: Animation) {
+    init(animation: LottieAnimation) {
         self.animation = animation
         setup()
     }
