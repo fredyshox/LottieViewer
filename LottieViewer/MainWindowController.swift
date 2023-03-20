@@ -78,6 +78,18 @@ final class MainWindowController: NSWindowController, NSWindowDelegate {
         showWindow(nil)
     }
     
+    func unminiutarizeOrShowImportView() {
+        guard let window else {
+            return
+        }
+        
+        if window.isMiniaturized {
+            window.setIsMiniaturized(false)
+        } else if !window.isVisible {
+            showImportView()
+        }
+    }
+    
     func open(url: URL) {
         state = .preview(url: url)
         showWindow(nil)

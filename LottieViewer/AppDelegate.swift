@@ -38,5 +38,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         windowController.open(url: url)
     }
+    
+    @IBAction func reopenIfNeeded(_ sender: Any) {
+        windowController.unminiutarizeOrShowImportView()
+    }
 }
 
